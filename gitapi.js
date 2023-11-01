@@ -1,3 +1,14 @@
+// Repo Creation Functions - START //
+
+function addRepoTitle(repoBox, repo) {
+    const repoTitle = document.createElement("h3");
+    repoTitle.innerText = repo.name;
+    repoBox.appendChild(repoTitle);
+}
+
+// Repo Creation Functions - END //
+
+
 function createRepoBox(repo) {
     /**
      * This function creates a div element with the class "repo-box" and appends it to the repoContainer
@@ -6,9 +17,14 @@ function createRepoBox(repo) {
      */
     const repoBox = document.createElement("div");
     repoBox.className = "repo-box";
-    repoBox.innerText = repo.name;
+    addRepoTitle(repoBox, repo);
+
+
     repoContainer.appendChild(repoBox);
+
 }
+
+
 
 function clearContainer() {
     /**
