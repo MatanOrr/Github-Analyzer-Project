@@ -11,9 +11,9 @@ function clearContainer() {
 async function fetchData(data) {
     const response = await fetch(data);
     if (!response.ok) {
-        throw new Error('HTTP Error')
+        throw new Error(response.status);
     }
-    return response.json()
+    return response.json();
 }
 
 async function userNameSubmitted() {
@@ -22,23 +22,18 @@ async function userNameSubmitted() {
      * It fetches the github API and calls createRepoBox for each repository
      */
     const username = usernameInput.value;
-    const userApiUrl = `https://api.github.com/users/${username}`;
-    const reposApiUrl = `https://api.github.com/users/${username}/repos?per_page=250`;
-    try {
-        let userData = await fetchData(userApiUrl)
-        createUserBox(userData);
-    } catch (error) {
-        console.log('fetching user data failed')
-    }
-    try {
-        let userRepos = await fetchData(reposApiUrl)
-        userRepos.forEach(repo => createRepoBox(repo));
-    } catch (error) {
-        console.log('fetching repos failed')
-    }
+    const userReposApi = `https://api.github.com/users/${username}/repos`;
+    const userDataApi = `https://api.github.com/users/${username}`;
+    clearContainer();
+
+    let userData = await fetchData(userDataApi);
+    createUserBox(userData);
+
+    let userRepos = await fetchData(userReposApi);
+    userRepos.forEach(repo => { createRepoBox(repo); });
 }
 
-// Helper Function - End
+/// HELPER FUNCTIONS - END ///
 
 document.addEventListener("DOMContentLoaded", function() {
     const submitButton = document.getElementById("submitButton");

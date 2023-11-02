@@ -16,9 +16,6 @@ export function createUserBox(data) {
     userLogin.href = data.html_url;
     userLogin.innerText = '@' + data.login;
     infoBoxDiv.appendChild(userLogin);
-
-    // Followers and Following
-    getFollowStats(user_data, infoBoxDiv);
 }
 
 function getFollowStats(data, infoBoxDiv) {
