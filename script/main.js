@@ -1,4 +1,5 @@
 import { createRepoBox } from "./repo-box.js";
+import { createUserBox } from "./user-data.js";
 
 function clearContainer() {
     /**
@@ -24,6 +25,7 @@ function userNameSubmitted() {
 
     .then(data => {
             clearContainer();
+            createUserBox(data[0].owner);
             data.forEach(repo => createRepoBox(repo));
         })
         .catch(error => console.error('Error:', error));
