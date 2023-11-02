@@ -7,22 +7,25 @@
     <title>Document</title>
     <!-- Basic styling -->
     <link rel="stylesheet" href="beta.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b907501226.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
     <header>
-        <h1>GitHub Profile Finder</h1>
-        <img src="/assests/github_icon.svg" alt="github_icon" class="github-icon">
-
-        <section id="Search Box">
-            <h2>Find User Name</h2>
-            <label for="UserName">Enter Username</label>
-            <input type="text" id="usernameInput">
-            <input type="button" value="Submit" id="submitButton">
-        </section>
+        <h1 class="page-title">GitHub <br> Profile Finder</h1>
+        <img src="/assests/github_icon.svg" alt="github_icon" class="page-icon">
     </header>
+
+
+    <section id="Search Box" class="search-container">
+        <h2>Find User Name</h2>
+        <div>
+            <input type="text" id="usernameInput" placeholder="Type user name here..." class="search-box">
+            <span class="fa fa-search" id="submitButton"></span>
+        </div>
+    </section>
 
     <div id="userInfoBox"></div>
 

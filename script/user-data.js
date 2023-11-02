@@ -7,6 +7,11 @@ export function createUserBox(data) {
     // Create user name
     const userName = document.createElement("h2");
     userName.innerText = data.name;
+    if (data.name == null) {
+        userName.innerText = data.login;
+    } else {
+        userName.innerText = data.name;
+    }
     infoBoxDiv.appendChild(userName);
 
     // Create user login

@@ -2,10 +2,10 @@ import { createRepoBox } from "./repo-box.js";
 import { createUserBox } from "./user-data.js";
 
 function clearContainer() {
-    /**
-     * This function clears the repoContainer
-     */
+    let repoContainer = document.getElementById("repoContainer");
+    let userInfoBox = document.getElementById("userInfoBox");
     repoContainer.innerHTML = "";
+    userInfoBox.innerHTML = "";
 }
 
 async function fetchData(data) {
@@ -17,6 +17,7 @@ async function fetchData(data) {
 }
 
 async function userNameSubmitted() {
+    clearContainer();
     /**
      * This function is called when the submit button is clicked
      * It fetches the github API and calls createRepoBox for each repository
@@ -24,7 +25,6 @@ async function userNameSubmitted() {
     const username = usernameInput.value;
     const userReposApi = `https://api.github.com/users/${username}/repos`;
     const userDataApi = `https://api.github.com/users/${username}`;
-    clearContainer();
 
     let userData = await fetchData(userDataApi);
     createUserBox(userData);
@@ -36,6 +36,13 @@ async function userNameSubmitted() {
 /// HELPER FUNCTIONS - END ///
 
 document.addEventListener("DOMContentLoaded", function() {
+    const searchBox = document.getElementById("usernameInput");
     const submitButton = document.getElementById("submitButton");
-    submitButton.addEventListener("click", userNameSubmitted);
+    searchBox.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            userNameSubmitted();
+        }
+    })
+    submitButton.addEventListener('click', userNameSubmitted);
 });

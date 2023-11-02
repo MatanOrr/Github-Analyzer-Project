@@ -3,13 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #00000013;
+    background: #ececec13;
     border: 1px solid #464646;
     border-radius: 10px;
     padding: 20px;
     margin: 100px;
     max-width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* center to the middle */
 }
 
 .avatar {
@@ -47,4 +48,5 @@
 
 .info-box:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: #a0a0a0;
 }
