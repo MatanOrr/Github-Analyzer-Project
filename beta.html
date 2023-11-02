@@ -7,17 +7,30 @@
     <title>Document</title>
     <!-- Basic styling -->
     <link rel="stylesheet" href="beta.css">
+    <script src="https://kit.fontawesome.com/b907501226.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <h1>GitHub Profile Finder</h1>
-    <h2>Find User Name</h2>
-    <label for="UserName">Enter Username</label>
-    <input type="text" id="usernameInput">
-    <input type="button" value="Submit" id="submitButton">
-    <div id="repoContainer"></div>
+    <header>
+        <h1>GitHub Profile Finder</h1>
+        <img src="/assests/github_icon.svg" alt="github_icon" class="github-icon">
+
+        <section id="Search Box">
+            <h2>Find User Name</h2>
+            <label for="UserName">Enter Username</label>
+            <input type="text" id="usernameInput">
+            <input type="button" value="Submit" id="submitButton">
+        </section>
+    </header>
+
+    <div class="user-profile-container">
+    </div>
+
+    <div class="repo-container" id="repoContainer"></div>
+
     <!-- Container to hold the repository boxes -->
-    <script src="gitapi.js"></script>
+    <script type="module" src="gitapi.js"></script>
 </body>
 
 
