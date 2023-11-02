@@ -1,30 +1,4 @@
-// Repo Creation Functions - START //
-
-function addRepoTitle(repoBox, repo) {
-    const repoTitle = document.createElement("h3");
-    repoTitle.innerText = repo.name;
-    repoBox.appendChild(repoTitle);
-}
-
-// Repo Creation Functions - END //
-
-
-function createRepoBox(repo) {
-    /**
-     * This function creates a div element with the class "repo-box" and appends it to the repoContainer
-     * @param {Object} repo - The repository object from the github API JSON response
-     * @param {string} repo.name - The name of the repository
-     */
-    const repoBox = document.createElement("div");
-    repoBox.className = "repo-box";
-    addRepoTitle(repoBox, repo);
-
-
-    repoContainer.appendChild(repoBox);
-
-}
-
-
+import { createRepoBox } from "./repoBox.js";
 
 function clearContainer() {
     /**
@@ -39,9 +13,16 @@ function userNameSubmitted() {
      * It fetches the github API and calls createRepoBox for each repository
      */
     const username = usernameInput.value;
-    fetch(`https://api.github.com/users/${username}/repos`)
-        .then(response => response.json())
-        .then(data => {
+    fetch(`https://api.github.com/users/${username}/repos?per_page=250`)
+        .then(response => {
+            if (!response.ok) {
+                console.log('Network response was not ok', response);
+                return;
+            }
+            return response.json();
+        })
+
+    .then(data => {
             clearContainer();
             data.forEach(repo => createRepoBox(repo));
         })
