@@ -1,5 +1,5 @@
 export function createUserBox(data) {
-    let user_data = data;
+
     let infoBoxDiv = document.getElementById("userInfoBox");
     infoBoxDiv = document.getElementById("userInfoBox");
     infoBoxDiv.classList.add("info-box");
@@ -27,11 +27,6 @@ function getFollowStats(data, infoBoxDiv) {
     const followingNum = data.following;
 
     const followStats = document.createElement("p");
-    followStats.className = "follow-stats";
-    if (followersNum === 0 && followingNum === 0) {
-        followStats.innerText = "No known followers and following";
-    } else {
-        followStats.innerText = `${followersNum} followers · ${followingNum} following`;
-    }
+    followStats.innerText = `${followersNum} followers · ${followingNum} following`;
     infoBoxDiv.appendChild(followStats);
 }
