@@ -1,3 +1,5 @@
+@import 'CSS/repo-box.css';
+@import 'CSS/user-data.css';
 body {
     background-color: #EADEDA;
     color: #000000;
@@ -40,41 +42,6 @@ h1 {
     margin-top: 20px;
 }
 
-.repo-container {
-    align-self: center;
-    justify-content: center;
-    display: grid;
-    width: 80%;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 50px;
-    margin-top: 20px;
-}
-
-.repo-box {
-    font-size: large;
-    border: 1px solid #000000;
-    border-radius: 3px;
-    margin-bottom: 20px;
-    padding: 20px;
-    position: relative;
-    background-color: #f3f8ff;
-}
-
-.github-link {
-    top: 10px;
-    right: 10px;
-    padding: 5px;
-    border-radius: 20px;
-    font-size: small;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: blueviolet;
-    /* opacity */
-    opacity: 0.4;
-}
-
 
 /* User Profile */
 
@@ -88,7 +55,6 @@ h1 {
     justify-content: center;
     align-items: center;
     margin: 50px;
-    background-color: #998888;
 }
 
 .user-image {
