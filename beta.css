@@ -45,18 +45,6 @@ h1 {
 
 /* User Profile */
 
-.user-profile-container {
-    grid-area: 1 / 1 / 2 / 4;
-    width: 30%;
-    height: 50%;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
-}
-
 .user-image {
     padding: 20px;
     width: 50px;

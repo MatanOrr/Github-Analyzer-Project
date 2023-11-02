@@ -1,4 +1,4 @@
-import { createRepoBox } from "./repoBox.js";
+import { createRepoBox } from "./repo-box.js";
 
 function clearContainer() {
     /**
@@ -33,8 +33,5 @@ function userNameSubmitted() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const submitButton = document.getElementById("submitButton");
-    const usernameInput = document.getElementById("usernameInput");
-    const repoContainer = document.getElementById("repoContainer");
-
     submitButton.addEventListener("click", userNameSubmitted);
 });
