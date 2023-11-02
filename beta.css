@@ -50,18 +50,23 @@ header {
 .search-container {
     /* align grid to the center of the page */
     position: relative;
-    left: 40%;
     justify-self: center;
-    width: 25%;
+    justify-content: center;
+    width: 100%;
     display: grid;
-    justify-content: justify-self;
     padding: 0 1em;
     /* border: 1px solid #000000; */
     overflow: hidden;
 }
 
 .search-box {
-    width: 15em;
+    width: 20em;
+    height: 3em;
+    padding: 3px;
+    font-size: medium;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    border-style: groove;
 }
 
 
