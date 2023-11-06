@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Basic styling -->
+    <link rel="stylesheet" href="user_page.css">
+    <!-- Fonts! -->
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b907501226.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="grid">
+    <!-- Header -->
+    <div class="grid header-grid">
+
+        <!-- Page Title -->
+        <h1>GitHub Profile Analyzer</h1>
+
+        <!-- Logo -->
+        <div class="page-logo">
+            <img src="assests/git_logo.png" alt="" class="logo-img">
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Enter a GitHub Username..." id="usernameInput">
+            <button class="search-icon" id="submitButton">
+                        <!-- Assuming your magnifying glass is an SVG or an icon font -->
+                        <img src="assests/magnifying_glass_icon.svg" alt="Search">
+                    </button>
+        </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="grid main-grid">
+
+        <!-- Info-grid -->
+        <div class="info-grid">
+            <!-- User box  -->
+            <div class="user-box" id="userInfoBox">
+
+                <!-- User Title -->
+                <h3>Username</h3>
+
+                <!-- avatar -->
+                <div class="avatar"></div>
+            </div>
+
+            <!-- Stats Box - 1 -->
+            <div class="stats-box">Here will be a pie chart</div>
+
+            <!-- Stats Box - 2 -->
+            <div class="stats-box">Here will be columns</div>
+
+            <!-- Stats Box - 1 -->
+            <div class="stats-box">Here will be a pie chart</div>
+
+            <!-- Stats Box - 2 -->
+            <div class="stats-box">Here will be columns</div>
+        </div>
+
+        <!-- Repos Grid -->
+        <div class="repos-grid" id="repoContainer">
+
+        </div>
+    </div>
+
+    <!-- Footer Grid -->
+    <div class="grid footer-grid">
+        <nav class="footer-nav">
+            <a href="/about">My GitHub</a>
+        </nav>
+    </div>
+
+    <script type="module" src="/script/main.js"></script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,67 @@
+body {
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 1vw;
+    /* Adjusted from 10px assuming an average 1000px width screen for 1% gap */
+    /* margin: auto; */
+    padding: 1vw;
+    /* Adjusted similarly */
+    width: 100vw;
+}
+
+.header-grid {
+    justify-content: space-between;
+    height: 5vh;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    border-bottom: 0.05vh solid #333;
+    /* Adjusted from 0.5px for consistency */
+}
+
+.footer-grid {
+    height: 5vh;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    border-top: 2.05vh solid #333;
+    /* Adjusted from 0.5px for consistency */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    /* Adjusted from 10px for consistency */
+    font-size: 0.8vw;
+    /* Responsive font size, though may be too small on very wide screens */
+}
+
+.search-grid {
+    background-color: rgb(66, 151, 225);
+    border: 0.1vw solid #af2929;
+    /* Adjusted from 1px for consistency */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.repos-grid {
+    display: grid;
+}
+
+.search-icon {
+    grid-column: 2 / 3;
+    margin-top: 1vh;
+    /* Adjusted from 10px assuming an average 1000px height screen for 1% gap */
+    margin-left: 1vw;
+    /* Adjusted similarly */
+}
