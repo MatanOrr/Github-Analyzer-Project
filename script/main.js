@@ -2,7 +2,7 @@ import { createRepoBox } from "./repo-box.js";
 import { createUserBox } from "./user-data.js";
 
 function clearContainer() {
-    let repoContainer = document.getElementById("repoContainer");
+    let repoContainer = document.getElementById("repos-grid");
     let userInfoBox = document.getElementById("userInfoBox");
     repoContainer.innerHTML = "";
     userInfoBox.innerHTML = "";
