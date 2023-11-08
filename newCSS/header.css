@@ -8,8 +8,8 @@
     height: auto;
     z-index: 1;
     border-bottom: 0.05vh solid #333333;
-    border: 1px solid hotpink;
     overflow: auto;
+    padding-bottom: 1vw;
 }
 
 h1 {
@@ -28,6 +28,7 @@ h1 {
 .search-box {
     display: flex;
     width: 450px;
+    min-width: 25vw;
     max-width: 90%;
     /* justify-content: space-evenly; */
     overflow: auto;
@@ -71,6 +72,6 @@ h1 {
     font-family: 'Noto Sans', sans-serif;
     color: #000;
     opacity: 0.5;
-    font-size: max(1.5vw, 10px);
+    font-size: clamp(1vw, 2vw, 15px);
     text-align: start;
 }

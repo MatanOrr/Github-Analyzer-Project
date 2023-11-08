@@ -1,6 +1,7 @@
 @import '/newCSS/header.css';
 @import '/newCSS/main.css';
 @import '/newCSS/footer.css';
+@import '/newCSS/info-flex.css';
 body {
     background-color: #ffffff;
     color: #000000;

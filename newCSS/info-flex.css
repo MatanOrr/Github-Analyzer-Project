@@ -1,0 +1,59 @@
+.info-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: auto;
+    border-bottom: 0.05vh solid #333333;
+    gap: 1vw;
+    overflow: auto;
+    border: 3px solid rgb(129, 6, 171);
+}
+
+
+/* User Box */
+
+.user-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    background: rgba(198, 198, 198, 0.5);
+    align-items: center;
+    padding: 1vw;
+    gap: 1vw;
+    flex: 1;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.stats-box {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(148, 148, 148, 0.5);
+    align-items: center;
+    flex: 1;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+h3 {
+    color: rgb(108, 108, 108);
+    font-family: Ubuntu;
+}
+
+.avatar {
+    width: 15vw;
+    height: 15vh;
+    width: clamp(5vw, 100px, 15vw);
+    height: clamp(5vh, 100px, 15vh);
+    border-radius: 50%;
+    margin: 0.5em;
+    background-color: aliceblue;
+}
