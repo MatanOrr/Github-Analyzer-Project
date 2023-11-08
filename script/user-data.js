@@ -5,7 +5,7 @@ export function createUserBox(data) {
     infoBoxDiv.classList.add("info-box");
 
     // Create user name
-    const userName = document.createElement("h2");
+    const userName = document.createElement("h3");
     userName.innerText = data.name;
     if (data.name == null) {
         userName.innerText = data.login;
