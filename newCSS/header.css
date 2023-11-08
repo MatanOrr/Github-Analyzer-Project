@@ -1,15 +1,4 @@
 @import '/newCSS/root.css';
-:root {
-    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
-    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
-    --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
-    --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
-    --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
-    --step-3: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
-    --step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
-    --step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
-}
-
 .header-flex {
     display: flex;
     flex-direction: row;
@@ -25,7 +14,7 @@
 }
 
 h1 {
-    font-size: var(--step-3);
+    font-size: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
     font-weight: 700;
     text-align: center;
     color: #333333;
@@ -42,11 +31,17 @@ h1 {
 
 .search-box {
     display: flex;
+<<<<<<< HEAD
     flex-direction: row;
     width: 500px;
     height: 35px;
     max-width: 90%;
     justify-content: center;
+=======
+    width: 450px;
+    max-width: 90%;
+    /* justify-content: space-evenly; */
+>>>>>>> Info-grid
     overflow: auto;
     flex-shrink: 1;
     border: 0.4vh solid #8338EC;
@@ -61,8 +56,14 @@ h1 {
     max-height: auto;
     margin-right: auto;
     overflow: auto;
+<<<<<<< HEAD
     border: 1px solid blue;
     /* border: none; */
+=======
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: max(1.5vw, 10px);
+>>>>>>> Info-grid
 }
 
 .search-input:focus {
@@ -79,11 +80,17 @@ h1 {
 }
 
 .search-icon img {
+<<<<<<< HEAD
     width: 100%;
     min-width: 15px;
     height: 100% - 1vh;
     padding-top: 0.5vh;
     /* padding-right: 5px; */
+=======
+    width: min(25px, 6vw);
+    height: auto;
+    padding: 0.5vh;
+>>>>>>> Info-grid
     overflow: auto;
     flex-shrink: 1;
 }
@@ -92,7 +99,11 @@ h1 {
     font-family: 'Noto Sans', sans-serif;
     color: #131313;
     opacity: 0.5;
+<<<<<<< HEAD
     font-size: 14px;
+=======
+    font-size: max(1.5vw, 10px);
+>>>>>>> Info-grid
     text-align: start;
     flex-shrink: 1;
 }
