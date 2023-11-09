@@ -7,8 +7,7 @@
     height: auto;
     gap: 1vw;
     padding: 1vw;
-    width: min(90%, 2800px);
-    border: 1px solid rgb(49, 49, 49);
+    width: min(95%, 2800px);
     margin-inline: auto;
     color: #000;
     font-family: Ubuntu;

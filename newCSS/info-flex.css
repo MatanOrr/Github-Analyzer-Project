@@ -2,11 +2,10 @@
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     max-width: 100%;
-    align-items: center;
+    justify-content: space-evenly;
     /* border-bottom: 0.05vh solid #333333; */
     gap: 1vw;
     overflow: auto;
-    /* border: 3px solid rgb(129, 6, 171); */
 }
 
 
@@ -21,6 +20,9 @@
     align-items: center;
     background: rgba(198, 198, 198, 0.5);
     border: 1px solid rgb(0, 0, 0);
+    flex-shrink: 0;
+    overflow: auto;
+    font-size: clamp(0.5rem, 1.5vw, 1rem);
 }
 
 .stats-box {
@@ -29,6 +31,10 @@
     grid-row: span 3;
     background: rgba(198, 198, 198, 0.5);
     border: 1px solid rgb(0, 0, 0);
+    flex-shrink: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 h3 {
@@ -71,10 +77,39 @@ h3 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(219, 219, 219, 0.5);
     align-items: center;
     flex-grow: 1;
     height: 100%;
-    border: 0.5px solid rgb(99, 62, 62);
     padding: 1vw;
+    border: 2px solid #8338EC;
+    background: #FFF;
+}
+
+@media only screen and (max-width: 600px) {
+    .info-grid {
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .repos-flex {
+        grid-column: span 15;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+    .repos-title {
+        grid-column: span 15;
+    }
+    .stats-box {
+        grid-column: span 15;
+        flex-grow: 1;
+    }
+    .user-box {
+        grid-column: span 15;
+        margin-left: 25%;
+        margin-right: 25%;
+        max-width: 50%;
+        /* margin-inline: auto; */
+        background-color: bisque;
+    }
 }
