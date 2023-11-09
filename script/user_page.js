@@ -33,11 +33,33 @@ async function userNameSubmitted() {
     userRepos.forEach(repo => { createRepoBox(repo); });
 }
 
+async function initialSearch() {
+    clearContainer();
+    /**
+     * This function is called when the page is first loaded
+     * It fetches the github API and calls createRepoBox for each repository
+     */
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+    if (username == null) {
+        return;
+    }
+    const userReposApi = `https://api.github.com/users/${username}/repos`;
+    const userDataApi = `https://api.github.com/users/${username}`;
+
+    let userData = await fetchData(userDataApi);
+    createUserBox(userData);
+
+    let userRepos = await fetchData(userReposApi);
+    userRepos.forEach(repo => { createRepoBox(repo); });
+}
+
 /// HELPER FUNCTIONS - END ///
 
 document.addEventListener("DOMContentLoaded", function() {
     const searchBox = document.getElementById("usernameInput");
     const submitButton = document.getElementById("submitButton");
+    initialSearch();
     searchBox.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
