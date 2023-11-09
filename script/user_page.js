@@ -1,14 +1,18 @@
 import { createRepoBox } from "./repo-box.js";
 import { createUserBox } from "./user-data.js";
+import { getMetrics } from "./charts.js";
 
 function clearContainer() {
     let repoContainer = document.getElementById("repoContainer");
     let userInfoBox = document.getElementById("userInfoBox");
     repoContainer.innerHTML = "";
     userInfoBox.innerHTML = "";
+    // destory canvas
+    let charts = document.getElementById("charts");
+    charts.innerHTML = "";
 }
 
-async function fetchData(data) {
+export async function fetchData(data) {
     const response = await fetch(data);
     if (!response.ok) {
         throw new Error(response.status);
@@ -17,17 +21,20 @@ async function fetchData(data) {
 }
 
 async function userNameSubmitted() {
+    window.history.pushState({}, '', `?username=${usernameInput.value}`);
     clearContainer();
     /**
      * This function is called when the submit button is clicked
      * It fetches the github API and calls createRepoBox for each repository
      */
     const username = usernameInput.value;
-    const userReposApi = `https://api.github.com/users/${username}/repos`;
+    const userReposApi = `https://api.github.com/users/${username}/repos?per_page=1000'`;
     const userDataApi = `https://api.github.com/users/${username}`;
 
     let userData = await fetchData(userDataApi);
     createUserBox(userData);
+
+    getMetrics(username);
 
     let userRepos = await fetchData(userReposApi);
     userRepos.forEach(repo => { createRepoBox(repo); });
@@ -49,6 +56,8 @@ async function initialSearch() {
 
     let userData = await fetchData(userDataApi);
     createUserBox(userData);
+
+    getMetrics(username);
 
     let userRepos = await fetchData(userReposApi);
     userRepos.forEach(repo => { createRepoBox(repo); });

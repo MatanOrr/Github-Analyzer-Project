@@ -32,6 +32,11 @@ export function createUserBox(data) {
     userAvatar.src = data.avatar_url;
     infoBoxDiv.appendChild(userAvatar);
 
+    //Create user location
+    const userLocation = document.createElement("p");
+    userLocation.innerText = data.location;
+    infoBoxDiv.appendChild(userLocation);
+
     // Get the number of followers and following directly from the data object
     const followersNum = data.followers; // These should be provided as numbers
     const followingNum = data.following;
