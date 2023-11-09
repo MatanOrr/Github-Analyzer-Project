@@ -1,5 +1,4 @@
 @import '/newCSS/header.css';
-@import '/newCSS/main.css';
 @import '/newCSS/footer.css';
 @import '/newCSS/info-flex.css';
 body {
@@ -7,4 +6,23 @@ body {
     color: #000000;
     font-family: 'Noto Sans', sans-serif;
     box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-grid {
+    display: grid;
+    height: auto;
+    gap: 1vw;
+    padding: 1vw;
+    width: min(95%, 2800px);
+    margin-inline: auto;
+    color: #000;
+    font-family: Ubuntu;
 }

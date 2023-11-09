@@ -57,12 +57,9 @@ h3 {
     grid-column: 4 / span 12;
     grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
-    /* justify-content: space-evenly; */
     align-items: center;
-    border-bottom: 0.05vh solid #333333;
     gap: 1vw;
     overflow: auto;
-    /* border: 3px solid rgb(129, 6, 171); */
 }
 
 .repos-title {
