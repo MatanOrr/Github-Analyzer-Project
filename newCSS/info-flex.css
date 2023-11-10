@@ -15,10 +15,10 @@
     display: flex;
     flex-direction: column;
     grid-column: span 3;
-    grid-row: span 5;
+    grid-row: span 3;
     text-align: center;
     align-items: center;
-    background: rgba(250, 250, 250, 0.5);
+    background: #fff7e1;
     border: 1px solid rgb(0, 0, 0);
     flex-shrink: 0;
     overflow: auto;
@@ -38,8 +38,9 @@
 }
 
 h3 {
-    color: rgb(108, 108, 108);
+    color: rgb(24, 24, 24);
     font-family: Ubuntu;
+    text-align: center;
 }
 
 .avatar {
@@ -51,6 +52,9 @@ h3 {
     margin: 0.5em;
     background-color: aliceblue;
 }
+
+
+/* User Repos */
 
 .repos-flex {
     display: grid;
@@ -67,19 +71,24 @@ h3 {
 }
 
 .repo-box {
+    box-sizing: border-box;
     grid-column: span 1;
     grid-row: span 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
     flex-grow: 1;
     height: 100%;
-    padding: 1vw;
+    padding: 1em;
+    padding-left: 20px;
     border: 2px solid #8338EC;
     background: #FFF;
+    font-size: large;
+}
+
+.repo-text {
+    font-size: clamp(1vw, 2vw, 15px);
 }
 
 @media only screen and (max-width: 700px) {
@@ -108,4 +117,52 @@ h3 {
         max-width: 50%;
         /* margin-inline: auto; */
     }
+}
+
+.gitlink-button {
+    align-items: center;
+    appearance: none;
+    background-color: #3EB2FD;
+    background-image: linear-gradient(1deg, rgb(99, 3, 134), #ac14f3 99%);
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    border-radius: 100px;
+    border-width: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    /* display: inline-flex; */
+    font-family: CircularStd, sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    align-self: center;
+    line-height: 1.5;
+    padding: 6px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s, background-position .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative;
+    margin-top: auto;
+    margin-left: 50%;
+    margin-right: 50%;
+    /* Push the button to the bottom */
+}
+
+.gitlink-button:active,
+.gitlink-button:focus {
+    outline: none;
+}
+
+.gitlink-button:hover {
+    background-position: -20px -20px;
+}
+
+.gitlink-button:focus:not(:active) {
+    box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }

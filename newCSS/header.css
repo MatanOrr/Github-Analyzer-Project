@@ -45,7 +45,7 @@ h1 {
     overflow: auto;
     border: none;
     font-family: 'Noto Sans', sans-serif;
-    font-size: max(1.5vw, 10px);
+    font-size: clamp(1vw, 2vw, 15px);
 }
 
 .search-input:focus {

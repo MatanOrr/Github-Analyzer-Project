@@ -61,6 +61,20 @@ function createPieChart(languages) {
         data,
         type: 'doughnut',
         options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Programming Languages Used',
+                    font: {
+                        size: 20,
+                        family: 'Noto Sans'
+                    }
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true
@@ -84,7 +98,7 @@ function createPieChart(languages) {
 
 //#endregion
 
-//# region User Activity Bar
+//#region User Activity Bar
 function getUserActivity(userRepos) {
 
     // last six months from current month
@@ -118,7 +132,8 @@ function createBarChart(userActivity) {
     const data = {
         labels: [],
         datasets: [{
-            label: 'Repos Created:',
+            label: 'Repo Activity',
+            //set the label to dont show up in the legend
             data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -142,8 +157,9 @@ function createBarChart(userActivity) {
         }]
     };
     for (let monthActivity in userActivity) {
-        data.labels.push(monthActivity);
-        data.datasets[0].data.push(userActivity[monthActivity]);
+        // in reverse order
+        data.labels.unshift(monthActivity);
+        data.datasets[0].data.unshift(userActivity[monthActivity]);
     }
 
     // Config Block
@@ -151,6 +167,25 @@ function createBarChart(userActivity) {
         type: 'bar',
         data: data,
         options: {
+            responsive: true,
+            aspectRatio: 1,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    position: 'top',
+                    text: '6 Last Months Repo Activity',
+                    font: {
+                        size: 20,
+                        family: 'Noto Sans'
+                    }
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true
@@ -171,6 +206,8 @@ function createBarChart(userActivity) {
         config
     );
 }
+
+//#endregion
 
 
 export async function getMetrics(username) {

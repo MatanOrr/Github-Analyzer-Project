@@ -37,6 +37,7 @@ h3 {
 .search-box {
     display: flex;
     width: clamp(15vw, 450px, 90%);
+    height: clamp(3.5vh, 50px, 15vh);
     /* justify-content: space-evenly; */
     border: 0.4vh solid #8338EC;
     border-radius: 1vh;
@@ -50,7 +51,7 @@ h3 {
     /* overflow: auto; */
     border: none;
     font-family: 'Noto Sans', sans-serif;
-    font-size: max(1.5vw, 10px);
+    font-size: clamp(0.2vw, 3.2vw, 20px);
 }
 
 .search-input:focus {
@@ -59,16 +60,16 @@ h3 {
 
 .search-icon {
     border: 1px solid blue;
-    width: 7vw;
+    width: 10px;
     background: none;
     border: none;
     cursor: pointer;
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 10%;
 }
 
 .search-icon img {
-    width: max(30px, 3vw);
+    width: clamp(25px, 3vw, 70px);
     height: auto;
     padding: 0.5vh;
     overflow: auto;
@@ -78,7 +79,7 @@ h3 {
     font-family: 'Noto Sans', sans-serif;
     color: #000;
     opacity: 0.5;
-    font-size: clamp(0.9vw, 2vw, 20px);
+    font-size: clamp(0.2vw, 3.2vw, 20px);
     text-align: start;
 }
 

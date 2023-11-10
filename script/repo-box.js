@@ -1,6 +1,7 @@
 const starIcon = '<i class="fa-solid fa-star fa-flip" style="color: #f9ce4d;"></i>';
 const languageIcon = '<i class="fa-regular fa-file-code"></i>'
 const noStarIcon = '<i class="fa-regular fa-star" style="color: #f9ce4d;"></i>'
+const forkIcon = '<i class="fa fa-code-fork" aria-hidden="true"></i>'
 
 function addRepoTitle(repoBox, repo) {
     const repoTitle = document.createElement("h3");
@@ -10,10 +11,11 @@ function addRepoTitle(repoBox, repo) {
 
 function addRepoDescription(repoBox, repo) {
     const repoDescription = document.createElement("p");
-    if (repo.description == null) {
-        return;
-    }
+    repoDescription.className = "repo-text";
     repoDescription.innerText = repo.description;
+    if (repo.description == null) {
+        repoDescription.innerText = "No description provided";
+    }
     repoBox.appendChild(repoDescription);
 }
 
@@ -22,6 +24,7 @@ function addRepoLanguage(repoBox, repo) {
         return;
     }
     const repoLanguage = document.createElement("p");
+    repoLanguage.className = "repo-text";
     repoLanguage.innerHTML = languageIcon + '&nbsp;' + '&nbsp;' + repo.language;
     repoBox.appendChild(repoLanguage);
 }
@@ -39,11 +42,25 @@ function addNumberofStars(repoBox, repo) {
     repoBox.appendChild(repoStars);
 }
 
+function addNumberOfForks(repoBox, repo) {
+    const repoForks = document.createElement("p");
+    let forkNumbers = repo.forks_count;
+    if (forkNumbers == 0) {
+        forkNumbers = "No";
+    }
+    repoForks.innerHTML = forkIcon + " " + forkNumbers + " " + 'forks';
+    repoBox.appendChild(repoForks);
+}
+
 function openInGitButton(repoBox, repo) {
     const openInGitLink = document.createElement("a");
+    const gitLinkButton = document.createElement("button");
     openInGitLink.href = repo.html_url;
     openInGitLink.className = "github-link";
-    openInGitLink.innerText = "Open in GitHub";
+    gitLinkButton.className = "gitlink-button ";
+    gitLinkButton.role = "button";
+    gitLinkButton.innerText = "Open in GitHub";
+    openInGitLink.appendChild(gitLinkButton);
     repoBox.appendChild(openInGitLink);
 }
 
@@ -58,9 +75,10 @@ export function createRepoBox(repo) {
     const repoBox = document.createElement("div");
     repoBox.className = "repo-box";
     addRepoTitle(repoBox, repo);
-    addRepoDescription(repoBox, repo);
     addRepoLanguage(repoBox, repo);
     addNumberofStars(repoBox, repo);
+    addNumberOfForks(repoBox, repo);
+    addRepoDescription(repoBox, repo);
     openInGitButton(repoBox, repo);
     repoContainer.appendChild(repoBox);
 }
