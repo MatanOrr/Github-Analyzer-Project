@@ -40,15 +40,14 @@ function getUserLanguages(userRepos) {
 }
 
 function createPieChart(languages) {
-
-
     const data = {
         labels: [],
         datasets: [{
             label: 'Language',
             data: [],
             borderWidth: 1,
-            backgroundColor: ['pink', 'blue', 'yellow', 'green', 'purple', 'orange']
+            backgroundColor: ['#462749', '#19647E', '#28AFB0', '#CE93D8', '#F4D35E', '#EE964B']
+
         }]
     };
 
@@ -70,11 +69,11 @@ function createPieChart(languages) {
         }
     };
 
-    const charts = document.getElementById('charts');
+    const pieChartBox = document.getElementById('pieChartBox');
+
     const pieChart = document.createElement('canvas');
-    pieChart.classList.add('stats-box');
     pieChart.id = 'languagesPie';
-    charts.appendChild(pieChart);
+    pieChartBox.appendChild(pieChart);
 
     // Render init block
     const myChart = new Chart(
@@ -86,6 +85,69 @@ function createPieChart(languages) {
 //#endregion
 
 //# region User Activity Bar
+function getUserActivity(userRepos) {
+
+    // last six months from current month
+    let result = {};
+    const now = new Date();
+    let sixMonthsAgo = []
+    for (let i = 0; i < 6; i++) {
+        let month = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        month = month.toLocaleString("default", { month: "long" });
+        sixMonthsAgo.push(month);
+
+    }
+    sixMonthsAgo.forEach(month => {
+        result[month] = 0;
+    });
+
+    // Count repos created in each month
+    userRepos.forEach(repo => {
+        const created = new Date(repo.created_at);
+        let month = new Date(created.getFullYear(), created.getMonth(), 1);
+        month = created.toLocaleString("default", { month: "long" });
+        if (result[month] != undefined) {
+            result[month] += 1;
+        }
+    });
+    return result;
+}
+
+function createBarChart(userActivity) {
+    // last six months from current month
+    const data = {
+        labels: [],
+        datasets: [{
+            label: 'Repos Created:',
+            data: [],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    };
+    for (let monthActivity in userActivity) {
+        data.labels.push(monthActivity);
+        data.datasets[0].data.push(userActivity[monthActivity]);
+    }
+
+    // Config Block
+    const config = {
+        type: 'line',
+        data: data,
+    };
+
+    const barChartBox = document.getElementById('barChartBox');
+    const barChart = document.createElement('canvas');
+    barChart.id = 'activityBar';
+
+    barChartBox.appendChild(barChart);
+
+    // Render init block
+    const myChart = new Chart(
+        document.getElementById('activityBar'),
+        config
+    );
+}
 
 
 export async function getMetrics(username) {
@@ -94,4 +156,6 @@ export async function getMetrics(username) {
         //Creating a pie chart
     userData.languages = getUserLanguages(userReposApi)
     createPieChart(userData.languages)
+    userData.repoActivity = getUserActivity(userReposApi)
+    createBarChart(userData.repoActivity)
 }

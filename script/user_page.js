@@ -8,8 +8,15 @@ function clearContainer() {
     repoContainer.innerHTML = "";
     userInfoBox.innerHTML = "";
     // destory canvas
-    let charts = document.getElementById("charts");
-    charts.innerHTML = "";
+    let barChartBox = document.getElementById("barChartBox");
+    if (barChartBox != null) {
+        barChartBox.innerHTML = "";
+    }
+
+    let pieChartBox = document.getElementById("pieChartBox");
+    if (pieChartBox != null) {
+        pieChartBox.innerHTML = "";
+    }
 }
 
 export async function fetchData(data) {
@@ -51,7 +58,7 @@ async function initialSearch() {
     if (username == null) {
         return;
     }
-    const userReposApi = `https://api.github.com/users/${username}/repos`;
+    const userReposApi = `https://api.github.com/users/${username}/repos?per_page=100&sort=created&direction=desc`;
     const userDataApi = `https://api.github.com/users/${username}`;
 
     let userData = await fetchData(userDataApi);
