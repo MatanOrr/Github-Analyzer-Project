@@ -37,6 +37,21 @@ export function createUserBox(data) {
     userLocation.innerText = data.location;
     infoBoxDiv.appendChild(userLocation);
 
+    // Create user mail
+    const userMail = document.createElement("p");
+    userMail.innerText = data.email;
+    infoBoxDiv.appendChild(userMail);
+
+    // Create user blog
+    const userBlog = document.createElement("a");
+    userBlog.className = "blog-link";
+    userBlog.href = data.blog;
+
+    // Create number of public repos
+    const publicRepos = document.createElement("p");
+    publicRepos.innerText = `${data.public_repos} public repos`;
+    infoBoxDiv.appendChild(publicRepos);
+
     // Get the number of followers and following directly from the data object
     const followersNum = data.followers; // These should be provided as numbers
     const followingNum = data.following;
