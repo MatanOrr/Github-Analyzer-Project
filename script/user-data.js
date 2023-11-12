@@ -1,4 +1,6 @@
 export function createUserBox(data) {
+    const codeIcon = '<i class="fas fa-code"></i>';
+    const followersIcon = '<i class="fas fa-user-friends"></i>';
 
     let infoBoxDiv = document.getElementById("userInfoBox");
     infoBoxDiv = document.getElementById("userInfoBox");
@@ -16,7 +18,7 @@ export function createUserBox(data) {
 
     // Create user login
     const userLogin = document.createElement("a");
-    userLogin.className = "login-link";
+    userLogin.className = "user-link";
     userLogin.href = data.html_url;
     userLogin.innerText = '@' + data.login;
     infoBoxDiv.appendChild(userLogin);
@@ -29,16 +31,41 @@ export function createUserBox(data) {
 
     //Create user description
     const userDescription = document.createElement("p");
+    userDescription.className = "user-text";
     userDescription.innerText = data.bio;
     infoBoxDiv.appendChild(userDescription);
 
+    // Create number of public repos
+    const publicRepos = document.createElement("p");
+    publicRepos.className = "user-text";
+    // minimize bottom margin
+    publicRepos.innerHTML = codeIcon + '&nbsp;' + `${data.public_repos} public repos`;
+    infoBoxDiv.appendChild(publicRepos);
+
+    // Get the number of followers and following directly from the data object
+    const followersNum = data.followers; // These should be provided as numbers
+    const followingNum = data.following;
+
+    const followStats = document.createElement("p");
+    followStats.style.lineHeight = "0";
+    if (followersNum == 0 && followingNum == 0) {
+        followStats.innerHTML = followersIcon + '&nbsp;' + 'No followers or following';
+    } else if (followersNum == 0) {
+        followStats.innerHTML = followersIcon + '&nbsp;' + `${followingNum} following`;
+    } else if (followingNum == 0) {
+        followStats.innerHTML = followersIcon + '&nbsp;' + `${followersNum} followers`;
+    } else
+        followStats.innerHTML = followersIcon + '&nbsp;' + `${followersNum} followers \n ${followingNum} following`;
+    infoBoxDiv.appendChild(followStats);
+
     //Create user location
     const userLocation = document.createElement("p");
+    userLocation.className = "user-text";
     userLocation.innerText = data.location;
     infoBoxDiv.appendChild(userLocation);
 
     // Create user mail
-    const userMail = document.createElement("p");
+    const userMail = document.createElement("a");
     userMail.innerText = data.email;
     infoBoxDiv.appendChild(userMail);
 
@@ -47,23 +74,7 @@ export function createUserBox(data) {
     userBlog.className = "blog-link";
     userBlog.href = data.blog;
 
-    // Create number of public repos
-    const publicRepos = document.createElement("p");
-    publicRepos.innerText = `${data.public_repos} public repos`;
-    infoBoxDiv.appendChild(publicRepos);
 
-    // Get the number of followers and following directly from the data object
-    const followersNum = data.followers; // These should be provided as numbers
-    const followingNum = data.following;
 
-    const followStats = document.createElement("p");
-    if (followersNum == 0 && followingNum == 0) {
-        followStats.innerText = 'No followers or following';
-    } else if (followersNum == 0) {
-        followStats.innerText = `${followingNum} following`;
-    } else if (followingNum == 0) {
-        followStats.innerText = `${followersNum} followers`;
-    } else
-        followStats.innerText = `${followersNum} followers | ${followingNum} following`;
-    infoBoxDiv.appendChild(followStats);
+
 }

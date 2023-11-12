@@ -19,7 +19,7 @@
 }
 
 h1 {
-    font-size: calc(clamp(2.6438rem, 2.1707rem + 0.8652vw, 2.4413rem)* 1.4);
+    font-size: calc(clamp(2.6438rem, 2.1707rem + 0.8652vw, 2.4413rem)* 1);
     font-weight: 700;
     font-family: 'Ubuntu';
     text-align: center;
@@ -28,7 +28,7 @@ h1 {
 }
 
 h3 {
-    font-size: calc(clamp(1rem, 1.2707rem + 0.6652vw, 1.6413rem) * 1.2);
+    font-size: calc(clamp(1rem, 1.2707rem + 0.6652vw, 1.6413rem) * 0.8);
     font-weight: 200;
     text-align: center;
     color: #333333;
@@ -40,8 +40,9 @@ h3 {
     width: clamp(15vw, 450px, 90%);
     height: clamp(3.5vh, 50px, 15vh);
     align-items: center;
-    border: 0.4vh solid #8338EC;
+    border: 0.6vh solid #8338EC;
     box-shadow: 0.165vh 0.2vh 0px 0.2vh rgba(0, 0, 0, 0.20);
+    margin-top: 3vh;
 }
 
 .search-input {
@@ -65,12 +66,12 @@ h3 {
     border: none;
     cursor: pointer;
     margin-left: auto;
-    margin-right: 10%;
+    margin-right: 7%;
 }
 
 .search-icon img {
-    width: clamp(25px, 2.5vw, 70px);
-    height: clamp(25px, 2.5vw, 70px);
+    width: clamp(22px, 2.2vw, 60px);
+    height: clamp(22px, 2.2vw, 60px);
     /* Adjust this line to maintain the aspect ratio */
     padding: 0.5vh;
 }
@@ -79,7 +80,7 @@ h3 {
     font-family: 'Noto Sans', sans-serif;
     color: #000;
     opacity: 0.5;
-    font-size: clamp(0.2vw, 3.2vw, 20px);
+    font-size: calc(clamp(0.2vw, 3.2vw, 20px) * 0.7);
     text-align: start;
 }
 
@@ -104,8 +105,8 @@ h3 {
         font-size: clamp(1vw, 2vw, 15px);
     }
     .search-icon img {
-        width: clamp(25px, 2.5vw, 70px);
-        height: clamp(25px, 2.5vw, 70px);
+        width: clamp(25px, 2.2vw, 65px);
+        height: clamp(25px, 2.2vw, 65px);
         max-height: 15px;
         padding: 1vh;
     }

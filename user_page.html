@@ -1,81 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Git Analyzer</title>
-    <!-- Basic styling -->
-    <link rel="stylesheet" href="/newCSS/user_page.css">
-    <!-- Fonts! -->
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/b907501226.js" crossorigin="anonymous"></script>
-
-</head>
-
-<body class="main-grid">
-    <!-- Header -->
-    <div class="header-flex">
-
-        <!-- Page Title -->
-        <a href='index.html'>
-            <h1>GitHub Profile Analyzer</h1>
-        </a>
-
-        <!-- Logo -->
-        <div class="page-logo">
-            <img src="assests/git_logo.png" alt="" class="logo-img">
-        </div>
-
-        <!-- Search Bar -->
-        <div class="search-box">
-            <input type="text" class="search-input" placeholder="Enter a GitHub Username..." id="usernameInput">
-            <button class="search-icon" id="submitButton">
-                        <!-- Assuming your magnifying glass is an SVG or an icon font -->
-                        <img src="assests/magnifying_glass_icon.svg" alt="Search">
-                    </button>
-        </div>
-    </div>
-
-    <!-- Info-grid -->
-    <div class="info-grid" id="infoGrid">
-        <!-- User box  -->
-        <div class="user-box" id="userInfoBox">
-
-            <!-- User Title -->
-            <h3>Username</h3>
-
-            <!-- avatar -->
-            <div class="avatar"></div>
-
-            <p>@nickname</p>
-
-            <p>Description</p>
-        </div>
-
-        <!-- Stats Box - 1 -->
-        <div class="stats-box" id="pieChartBox">Here will be pie chart</div>
-
-        <!-- Stats Box - 2 -->
-        <div class="stats-box" id="barChartBox">Here will be columns</div>
-
-        <h1 class="repos-title">User Repositories</h1>
-
-        <!-- Repos Flex -->
-        <div class="repos-flex" id="repoContainer">
-            <div class="repo-box"></div>
-            <div class="repo-box"></div>
-            <div class="repo-box"></div>
-        </div>
-
-    </div>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <script type="module" src="/script/user_page.js"></script>
-</body>
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    max-width: 100%;
+    justify-content: space-evenly;
+    /* border-bottom: 0.05vh solid #333333; */
+    gap: 1vw;
+    overflow: auto;
+}
 
 
+/* User Box */
 
-</html>
+.user-box {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 3;
+    grid-row: span 3;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    text-align: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    background: rgba(217, 217, 217, 0.50);
+    color: rgb(0, 0, 0, 0.50);
+    overflow: auto;
+    border-radius: 10px;
+    font-size: clamp(1rem, 1.2vw, 2.5rem);
+    height: 100%;
+}
+
+.stats-box {
+    display: flex;
+    grid-column: span 6;
+    grid-row: span 3;
+    background: rgba(250, 250, 250, 0.5);
+    border: 1px solid rgb(0, 0, 0);
+    flex-shrink: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    color: rgb(24, 24, 24);
+    font-family: Ubuntu;
+    text-align: center;
+    font-size: larger;
+    font-weight: 800;
+}
+
+.avatar {
+    width: 15vw;
+    height: auto;
+    width: clamp(5vw, 100px, 15vw);
+    height: auto;
+    border-radius: 50%;
+    margin: 0.5em;
+    margin-top: 1em;
+    background-color: aliceblue;
+}
+
+.user-text {
+    margin-bottom: 0;
+}
+
+.user-link {
+    text-decoration: none;
+    color: #8338EC;
+    font-weight: 500;
+}
+
+
+/* User Repos */
+
+.repos-flex {
+    grid-column: 4 / span 12;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    align-items: center;
+    gap: 1vw;
+}
+
+.repos-title {
+    grid-column: 4 / span 12;
+    text-align: center;
+    font-family: 'Ubuntu';
+}
+
+.repo-box {
+    box-sizing: border-box;
+    grid-column: span 1;
+    grid-row: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    height: 100%;
+    max-width: 100%;
+    padding: 1vw;
+    padding-left: 1.5vw;
+    border: 0.6vh solid #702ae8;
+    background: #FFF;
+    margin-top: auto;
+}
+
+.repo-text {
+    font-size: clamp(1em, 2vw, 15px);
+}
+
+@media only screen and (max-width: 600px) {
+    .info-grid {
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .repos-flex {
+        grid-column: span 15;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+    .repos-title {
+        grid-column: span 15;
+    }
+    .stats-box {
+        grid-column: span 15;
+        flex-grow: 1;
+    }
+    .user-box {
+        grid-column: span 15;
+        margin-left: 25%;
+        margin-right: 25%;
+        max-width: 50%;
+    }
+}
+
+.gitlink-button {
+    align-items: center;
+    appearance: none;
+    background-color: #8338EC;
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    border-width: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    align-self: center;
+    line-height: 1.5;
+    padding: 6px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .2s, background-position .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative;
+    margin-top: auto;
+    margin-inline: auto;
+}
+
+.gitlink-button:active,
+.gitlink-button:focus {
+    outline: none;
+}
+
+.gitlink-button:hover {
+    background-position: -20px -20px;
+}
+
+.gitlink-button:focus:not(:active) {
+    box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+}
