@@ -2,6 +2,7 @@ const starIcon = '<i class="fa-solid fa-star fa-flip" style="color: #f9ce4d;"></
 const languageIcon = '<i class="fa-regular fa-file-code"></i>'
 const noStarIcon = '<i class="fa-regular fa-star" style="color: #f9ce4d;"></i>'
 const forkIcon = '<i class="fa fa-code-fork" aria-hidden="true"></i>'
+const dateIcon = '<i class="fa-regular fa-calendar"></i>'
 
 function addRepoTitle(repoBox, repo) {
     const repoTitle = document.createElement("h3");
@@ -52,6 +53,14 @@ function addNumberOfForks(repoBox, repo) {
     repoBox.appendChild(repoForks);
 }
 
+function addRepoDate(repoBox, repo) {
+    const repoDate = document.createElement("p");
+    const formattedRepoDate = new Date(repo.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    repoDate.className = "repo-text";
+    repoDate.innerHTML = dateIcon + " " + formattedRepoDate;
+    repoBox.appendChild(repoDate);
+}
+
 function openInGitButton(repoBox, repo) {
     const openInGitLink = document.createElement("a");
     const gitLinkButton = document.createElement("button");
@@ -78,6 +87,7 @@ export function createRepoBox(repo) {
     addRepoLanguage(repoBox, repo);
     addNumberofStars(repoBox, repo);
     addNumberOfForks(repoBox, repo);
+    addRepoDate(repoBox, repo);
     addRepoDescription(repoBox, repo);
     openInGitButton(repoBox, repo);
     repoContainer.appendChild(repoBox);
