@@ -11,8 +11,8 @@ function addRepoTitle(repoBox, repo) {
 
 function addRepoDescription(repoBox, repo) {
     const repoDescription = document.createElement("p");
-    repoDescription.className = "repo-text";
     repoDescription.innerText = repo.description;
+    repoDescription.className = "repo-text";
     if (repo.description == null) {
         repoDescription.innerText = "No description provided";
     }
@@ -31,9 +31,9 @@ function addRepoLanguage(repoBox, repo) {
 function addNumberofStars(repoBox, repo) {
     const repoStars = document.createElement("p");
     const starNumbers = repo.stargazers_count;
+    repoStars.className = "repo-text";
     if (starNumbers == 0) {
         repoStars.innerHTML = noStarIcon + " " + 'No stars yet';
-        repoStars.className = "small-text";
         repoBox.appendChild(repoStars);
     } else {
         repoStars.innerHTML = starIcon + " " + starNumbers + " " + 'stars';
@@ -43,6 +43,7 @@ function addNumberofStars(repoBox, repo) {
 
 function addNumberOfForks(repoBox, repo) {
     const repoForks = document.createElement("p");
+    repoForks.className = "repo-text";
     let forkNumbers = repo.forks_count;
     if (forkNumbers == 0) {
         forkNumbers = "No";

@@ -29,6 +29,8 @@ export async function fetchData(data) {
 
 async function userNameSubmitted() {
     window.history.pushState({}, '', `?username=${usernameInput.value}`);
+    const pageTitle = document.getElementById("pageTitle");
+    pageTitle.innerText = 'Git Analyzer - ' + usernameInput.value;
     clearContainer();
     /**
      * This function is called when the submit button is clicked
@@ -49,6 +51,7 @@ async function userNameSubmitted() {
 
 async function initialSearch() {
     clearContainer();
+
     /**
      * This function is called when the page is first loaded
      * It fetches the github API and calls createRepoBox for each repository
