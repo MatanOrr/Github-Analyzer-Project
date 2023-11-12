@@ -89,6 +89,13 @@ h3 {
     padding: 1vw;
 }
 
+.error-message {
+    font-size: clamp(0.2vw, 3.2vw, 20px);
+    color: #b30d0db9;
+    text-align: center;
+    margin-top: 2vh;
+}
+
 @media only screen and (max-width: 600px) {
     .search-box {
         width: 90%;
