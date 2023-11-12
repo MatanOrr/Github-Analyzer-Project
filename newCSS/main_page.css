@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     margin: 20px;
+    margin-top: 10vh;
     width: 100%;
     background-color: #ffffff;
     color: #000000;
@@ -18,15 +19,16 @@
 }
 
 h1 {
-    font-size: calc(clamp(2.6438rem, 2.1707rem + 0.8652vw, 2.4413rem)* 1.8);
+    font-size: calc(clamp(2.6438rem, 2.1707rem + 0.8652vw, 2.4413rem)* 1.4);
     font-weight: 700;
+    font-family: 'Ubuntu';
     text-align: center;
     color: #333333;
     margin-bottom: 2vh;
 }
 
 h3 {
-    font-size: calc(clamp(1rem, 1.2707rem + 0.6652vw, 1.6413rem) * 1.5);
+    font-size: calc(clamp(1rem, 1.2707rem + 0.6652vw, 1.6413rem) * 1.2);
     font-weight: 200;
     text-align: center;
     color: #333333;
