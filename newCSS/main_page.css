@@ -38,7 +38,7 @@ h3 {
     display: flex;
     width: clamp(15vw, 450px, 90%);
     height: clamp(3.5vh, 50px, 15vh);
-    /* justify-content: space-evenly; */
+    align-items: center;
     border: 0.4vh solid #8338EC;
     border-radius: 1vh;
     box-shadow: 0.165vh 0.2vh 0px 0.2vh rgba(0, 0, 0, 0.20);
@@ -69,10 +69,10 @@ h3 {
 }
 
 .search-icon img {
-    width: clamp(25px, 3vw, 70px);
-    height: auto;
+    width: clamp(25px, 2.5vw, 70px);
+    height: clamp(25px, 2.5vw, 70px);
+    /* Adjust this line to maintain the aspect ratio */
     padding: 0.5vh;
-    overflow: auto;
 }
 
 ::placeholder {
@@ -87,4 +87,25 @@ h3 {
     width: clamp(150px, 10vw, 300px);
     height: auto;
     padding: 1vw;
+}
+
+@media only screen and (max-width: 600px) {
+    .search-box {
+        width: 90%;
+    }
+    .search-input {
+        font-size: clamp(1vw, 2vw, 15px);
+    }
+    .search-icon img {
+        width: clamp(25px, 2.5vw, 70px);
+        height: clamp(25px, 2.5vw, 70px);
+        max-height: 15px;
+        padding: 1vh;
+    }
+    h1 {
+        font-size: clamp(1.5rem, 2.1707rem + 0.8652vw, 2.4413rem);
+    }
+    h3 {
+        font-size: clamp(1rem, 1.2707rem + 0.6652vw, 1.6413rem);
+    }
 }

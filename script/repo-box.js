@@ -20,12 +20,11 @@ function addRepoDescription(repoBox, repo) {
 }
 
 function addRepoLanguage(repoBox, repo) {
-    if (repo.language == null) {
-        return;
-    }
     const repoLanguage = document.createElement("p");
     repoLanguage.className = "repo-text";
-    repoLanguage.innerHTML = languageIcon + '&nbsp;' + '&nbsp;' + repo.language;
+    if (repo.language == null) {
+        repoLanguage.innerHTML = languageIcon + '&nbsp;' + '&nbsp;' + 'No language specified';
+    } else { repoLanguage.innerHTML = languageIcon + '&nbsp;' + '&nbsp;' + repo.language; }
     repoBox.appendChild(repoLanguage);
 }
 

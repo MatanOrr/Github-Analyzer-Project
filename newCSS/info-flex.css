@@ -18,11 +18,13 @@
     grid-row: span 3;
     text-align: center;
     align-items: center;
-    background: #fff7e1;
-    border: 1px solid rgb(0, 0, 0);
+    border-radius: 1.25rem;
+    background: rgba(217, 217, 217, 0.50);
+    color: rgb(0, 0, 0, 0.50);
     flex-shrink: 0;
     overflow: auto;
-    font-size: clamp(0.5rem, 1.5vw, 1rem);
+    border-radius: 20px;
+    font-size: clamp(1rem, 1.5vw, 2.5rem);
 }
 
 .stats-box {
@@ -45,11 +47,12 @@ h3 {
 
 .avatar {
     width: 15vw;
-    height: 15vh;
+    height: auto;
     width: clamp(5vw, 100px, 15vw);
-    height: clamp(5vh, 100px, 15vh);
+    height: auto;
     border-radius: 50%;
     margin: 0.5em;
+    margin-top: 1em;
     background-color: aliceblue;
 }
 
@@ -67,6 +70,7 @@ h3 {
 
 .repos-title {
     grid-column: 4 / span 12;
+    text-align: center;
 }
 
 .repo-box {
@@ -74,14 +78,15 @@ h3 {
     grid-row: span 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    /* align-items: center; */
+    justify-content: space-between;
+    text-align: left;
     height: 100%;
     padding: 1vw;
     border: 2px solid #702ae8;
     background: #FFF;
     box-sizing: border-box;
+    margin-top: auto;
 }
 
 .repo-text {
@@ -121,7 +126,6 @@ h3 {
     background-color: #3EB2FD;
     background-image: linear-gradient(1deg, rgb(99, 3, 134), #ac14f3 99%);
     background-size: calc(100% + 20px) calc(100% + 20px);
-    border-radius: 100px;
     border-width: 0;
     box-shadow: none;
     box-sizing: border-box;
@@ -145,7 +149,6 @@ h3 {
     white-space: nowrap;
     position: relative;
     margin-top: auto;
-    /* Push the button to the bottom */
 }
 
 .gitlink-button:active,

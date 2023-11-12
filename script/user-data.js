@@ -21,16 +21,16 @@ export function createUserBox(data) {
     userLogin.innerText = '@' + data.login;
     infoBoxDiv.appendChild(userLogin);
 
-    //Create user description
-    const userDescription = document.createElement("p");
-    userDescription.innerText = data.bio;
-    infoBoxDiv.appendChild(userDescription);
-
     // Create user avatar
     const userAvatar = document.createElement("img");
     userAvatar.className = "avatar";
     userAvatar.src = data.avatar_url;
     infoBoxDiv.appendChild(userAvatar);
+
+    //Create user description
+    const userDescription = document.createElement("p");
+    userDescription.innerText = data.bio;
+    infoBoxDiv.appendChild(userDescription);
 
     //Create user location
     const userLocation = document.createElement("p");
