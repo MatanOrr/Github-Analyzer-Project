@@ -63,7 +63,7 @@ h3 {
     max-width: 100%;
     align-items: center;
     gap: 1vw;
-    overflow: auto;
+    border: 6px solid #25212c;
 }
 
 .repos-title {
@@ -71,27 +71,25 @@ h3 {
 }
 
 .repo-box {
-    box-sizing: border-box;
     grid-column: span 1;
     grid-row: span 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     height: 100%;
-    padding: 1em;
-    padding-left: 20px;
-    border: 2px solid #8338EC;
+    padding: 1vw;
+    border: 6px solid #25212c;
     background: #FFF;
-    font-size: large;
+    box-sizing: border-box;
 }
 
 .repo-text {
     font-size: clamp(1vw, 2vw, 15px);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
     .info-grid {
         align-items: center;
         justify-content: center;
@@ -115,7 +113,6 @@ h3 {
         margin-left: 25%;
         margin-right: 25%;
         max-width: 50%;
-        /* margin-inline: auto; */
     }
 }
 
@@ -131,7 +128,7 @@ h3 {
     box-sizing: border-box;
     color: #FFFFFF;
     cursor: pointer;
-    /* display: inline-flex; */
+    display: flex;
     font-family: CircularStd, sans-serif;
     font-size: 1rem;
     height: auto;
@@ -149,8 +146,6 @@ h3 {
     white-space: nowrap;
     position: relative;
     margin-top: auto;
-    margin-left: 50%;
-    margin-right: 50%;
     /* Push the button to the bottom */
 }
 
