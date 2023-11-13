@@ -64,6 +64,7 @@ function createPieChart(languages) {
         data,
         type: 'doughnut',
         options: {
+            maintainAspectRatio: false,
             responsive: true,
             plugins: {
                 legend: {
@@ -170,6 +171,7 @@ function createBarChart(userActivity) {
         type: 'bar',
         data: data,
         options: {
+            maintainAspectRatio: false,
             responsive: true,
             aspectRatio: 1,
             plugins: {
