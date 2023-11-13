@@ -1,6 +1,6 @@
 export function createUserBox(data) {
-    const codeIcon = '<i class="fas fa-code"></i>';
-    const followersIcon = '<i class="fas fa-user-friends"></i>';
+    const codeIcon = '<i class="fas fa-code" style="color:  #8338ec;"></i>';
+    const followersIcon = '<i class="fas fa-user-friends" style="color: #8338ec;"></i>';
 
     let infoBoxDiv = document.getElementById("userInfoBox");
     infoBoxDiv = document.getElementById("userInfoBox");

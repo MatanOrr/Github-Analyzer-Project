@@ -46,7 +46,10 @@ function createPieChart(languages) {
             label: 'Language',
             data: [],
             borderWidth: 1,
-            backgroundColor: ['#462749', '#19647E', '#28AFB0', '#CE93D8', '#F4D35E', '#EE964B']
+            borderColor: '#FFF',
+            backgroundColor: ['#462749', '#19647E', '#28AFB0', '#CE93D8', '#F4D35E', '#EE964B'],
+            backgroundColor: ['#FF5953', '#FF924C', '#FFCA3A', '#8AC926', '#1982C4', '#6A4C93'],
+            backgroundColor: ['#D9B6DB', '#616154', '#9BA28F', '#ECDCF4', '#302B20', '#A38E98']
 
         }]
     };
@@ -71,7 +74,7 @@ function createPieChart(languages) {
                     text: 'Programming Languages Used',
                     font: {
                         size: 20,
-                        family: 'Noto Sans'
+                        family: 'Ubuntu'
                     }
                 }
             },
@@ -182,7 +185,7 @@ function createBarChart(userActivity) {
                     text: '6 Last Months Repo Activity',
                     font: {
                         size: 20,
-                        family: 'Noto Sans'
+                        family: 'Ubuntu'
                     }
                 }
             },
