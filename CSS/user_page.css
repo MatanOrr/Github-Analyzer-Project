@@ -1,6 +1,6 @@
-@import '/newCSS/header.css';
-@import '/newCSS/footer.css';
-@import '/newCSS/info-flex.css';
+@import '/CSS/header.css';
+@import '/CSS/footer.css';
+@import '/CSS/info-flex.css';
 body {
     background-color: #ffffff;
     color: #000000;

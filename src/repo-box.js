@@ -77,10 +77,6 @@ function openInGitButton(repoBox, repo) {
 
 
 export function createRepoBox(repo) {
-    /**
-     * This function creates a div element with the class "repo-box" and appends it to the repoContainer
-     * @param {Object} repo - The repository object from the github API JSON response
-     */
     const repoBox = document.createElement("div");
     repoBox.className = "repo-box";
     addRepoTitle(repoBox, repo);

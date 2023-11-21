@@ -27,16 +27,7 @@ export async function fetchData(data) {
     return response.json();
 }
 
-async function userNameSubmitted() {
-    window.history.pushState({}, '', `?username=${usernameInput.value}`);
-    const pageTitle = document.getElementById("pageTitle");
-    pageTitle.innerText = 'Git Analyzer - ' + usernameInput.value;
-    clearContainer();
-    /**
-     * This function is called when the submit button is clicked
-     * It fetches the github API and calls createRepoBox for each repository
-     */
-    const username = usernameInput.value;
+async function fetchAndDisplayUserData(username) {
     const userReposApi = `https://api.github.com/users/${username}/repos?per_page=1000'`;
     const userDataApi = `https://api.github.com/users/${username}`;
 
@@ -49,28 +40,26 @@ async function userNameSubmitted() {
     userRepos.forEach(repo => { createRepoBox(repo); });
 }
 
+async function userNameSubmitted() {
+    window.history.pushState({}, '', `?username=${usernameInput.value}`);
+    const pageTitle = document.getElementById("pageTitle");
+    pageTitle.innerText = 'Git Analyzer - ' + usernameInput.value;
+    clearContainer();
+
+    const username = usernameInput.value;
+    await fetchAndDisplayUserData(username);
+}
+
 async function initialSearch() {
     clearContainer();
 
-    /**
-     * This function is called when the page is first loaded
-     * It fetches the github API and calls createRepoBox for each repository
-     */
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
     if (username == null) {
         return;
     }
-    const userReposApi = `https://api.github.com/users/${username}/repos?per_page=100&sort=created&direction=desc`;
-    const userDataApi = `https://api.github.com/users/${username}`;
 
-    let userData = await fetchData(userDataApi);
-    createUserBox(userData);
-
-    getMetrics(username);
-
-    let userRepos = await fetchData(userReposApi);
-    userRepos.forEach(repo => { createRepoBox(repo); });
+    await fetchAndDisplayUserData(username);
 }
 
 /// HELPER FUNCTIONS - END ///
