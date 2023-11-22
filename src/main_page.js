@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 alertNonUser();
                 return;
             }
-            window.location.href = `user_page.html?username=${searchBox.value}`;
+            window.location.href = `user_page.html?username=${searchBox.value}`; // TODO: Add username to URL
         }
     });
 

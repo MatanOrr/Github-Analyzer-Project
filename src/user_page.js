@@ -2,12 +2,27 @@ import { createRepoBox } from "./repo-box.js";
 import { createUserBox } from "./user-data.js";
 import { getMetrics } from "./charts.js";
 
+document.addEventListener("DOMContentLoaded", function() {
+    const searchBox = document.getElementById("usernameInput");
+    const submitButton = document.getElementById("submitButton");
+    initialSearch();
+    searchBox.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            userNameSubmitted();
+        }
+    })
+    submitButton.addEventListener('click', userNameSubmitted);
+});
+
+// HELPER FUNCTIONS - START //
+
 function clearContainer() {
     let repoContainer = document.getElementById("repoContainer");
     let userInfoBox = document.getElementById("userInfoBox");
     repoContainer.innerHTML = "";
     userInfoBox.innerHTML = "";
-    // destory canvas
+
     let barChartBox = document.getElementById("barChartBox");
     if (barChartBox != null) {
         barChartBox.innerHTML = "";
@@ -63,16 +78,3 @@ async function initialSearch() {
 }
 
 /// HELPER FUNCTIONS - END ///
-
-document.addEventListener("DOMContentLoaded", function() {
-    const searchBox = document.getElementById("usernameInput");
-    const submitButton = document.getElementById("submitButton");
-    initialSearch();
-    searchBox.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            userNameSubmitted();
-        }
-    })
-    submitButton.addEventListener('click', userNameSubmitted);
-});

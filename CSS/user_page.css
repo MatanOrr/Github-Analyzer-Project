@@ -21,7 +21,7 @@ a {
     height: auto;
     gap: 1vw;
     padding: 1vw;
-    width: min(95%, 2800px);
+    /* width: min(95%, 2800px); */
     margin-inline: auto;
     color: #5a5a5a;
     font-family: Ubuntu;
